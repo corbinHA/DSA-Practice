@@ -2,7 +2,7 @@
 
 #   If the input array is empty, the function sould return 0.
 
-# Optimal Answer:
+# Optimal Solution:
 
 def maxSubsetSumNoAdjacent(array):
     if not len(array):
