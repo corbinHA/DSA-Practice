@@ -25,27 +25,20 @@
 
 
 var multiply = function(num1, num2) {
-    if (num1.length < num2.lenght) {
-        let longNum = num1.split('').reverse();
-        let shortNum = num2.split('').reverse();
-    } else {
-        let longNum = num2.split('').reverse();
-        let shortNum = num1.split('').reverse();
-    };
+  let longNum = num2.split('').reverse();
+  let shortNum = num1.split('').reverse();
 
     let newNum = [];
-    for (let i = 0; i < shortNum.length; i++) {
-        for (let j = 0; j < longNum.length; j++) {
-           let product = parseInt(longNum[i]) * parseInt(shortNum[j]) + (newNum[i + j] || 0);
+    for (let i = 0; i < longNum.length; i++) {
+        for (let j = 0; j < shortNum.length; j++) {
+           let product = parseInt(longNum[i]) * parseInt(shortNum[j]) + (newNum[i + j] || 0) ;
            let remainder = product % 10
-            let tensPlace = (product - remainder) / 10
-            newNum[j + i] = remainder
-            if (tensPlace) {
+           let tensPlace = (product - remainder) / 10
+           newNum[j + i] = remainder
+           if (tensPlace) {
                 newNum[j + i + 1] = (newNum[j + i + 1] || 0) + tensPlace
             } 
         }
-        return newNum.reverse().join('').replace(/^0*/,'') || 0
     }
-
-    
+  return newNum.reverse().join('').replace(/^0*/,'') || '0'
 };
