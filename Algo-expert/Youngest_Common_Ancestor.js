@@ -45,7 +45,7 @@ class AncestralTree {
 
 function getYoungestCommonAncestor(topAncestor, descendantOne, descendantTwo) {
 		if ( topAncestor === descendantOne || topAncestor === descendantTwo ) return topAncestor;
-    if(descendantOne.ancestor === descendantTwo) return descendantTwo;
+        if(descendantOne.ancestor === descendantTwo) return descendantTwo;
 		if(descendantTwo.ancestor === descendantOne) return descendantOne;
 		let descendantsOne = [descendantOne].concat(collectAllAncestors(topAncestor, descendantOne.ancestor));
 		let descendantsTwo = [descendantTwo].concat(collectAllAncestors(topAncestor, descendantTwo.ancestor));
