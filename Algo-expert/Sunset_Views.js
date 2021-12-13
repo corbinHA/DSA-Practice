@@ -68,3 +68,26 @@ function sunsetViews(buildings, direction) {
 	}
   return [];
 }
+
+// Stack option
+function sunsetViews(buildings, direction) {
+  let possibleBuildings = []
+	let startIdx = direction === "EAST" ? 0 : buildings.length - 1;
+	let step = direction === "EAST" ? 1 : -1;
+	
+	let idx = startIdx
+	while (idx >= 0 && idx < buildings.length) {
+		let buildingHeight = buildings[idx]
+		
+		while (possibleBuildings.length > 0 && buildings[possibleBuildings[possibleBuildings.length - 1]] <= buildingHeight) {
+			possibleBuildings.pop()
+		}
+		
+		possibleBuildings.push(idx)
+		
+		idx += step
+	}
+	
+	if (direction === "WEST") return possibleBuildings.sort((a,b) => a - b)
+  return possibleBuildings;
+}
