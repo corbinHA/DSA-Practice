@@ -59,6 +59,6 @@ function getYoungestCommonAncestor(topAncestor, descendantOne, descendantTwo) {
 }
 
 function collectAllAncestors(topAncestor, descendant) {
-		if (descendant === topAncestor)return [descendant]
+	if (descendant === topAncestor)return [descendant]
     if(descendant.ancestor !== null)return [descendant].concat(collectAllAncestors(topAncestor, descendant.ancestor));
 }
